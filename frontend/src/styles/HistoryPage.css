@@ -1,0 +1,62 @@
+.history-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.history-container h1 {
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.no-parcels {
+  background: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+
+.parcels-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.parcel-card {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.parcel-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.parcel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.parcel-header h3 {
+  color: #333;
+  margin: 0;
+}
+
+.parcel-info p {
+  margin: 8px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.parcel-info strong {
+  color: #333;
+}
