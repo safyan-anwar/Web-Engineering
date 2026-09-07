@@ -2,13 +2,13 @@ const Database = require('better-sqlite3');
 const path = require('path');
 require('dotenv').config();
 
-const dbPath = path.join(__dirname, '../parcel_delivery.db');
+const dbPath = path.join(__dirname, '../data/parcel_delivery.db');
 
 const db = new Database(dbPath);
 db.pragma('journal_mode = WAL');
 
 const initializeDatabase = () => {
-  // Users table
+  
   db.exec(`CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
@@ -21,7 +21,7 @@ const initializeDatabase = () => {
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
   )`);
 
-  // Parcels table
+
   db.exec(`CREATE TABLE IF NOT EXISTS parcels (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     sender_id INTEGER NOT NULL,
@@ -40,7 +40,6 @@ const initializeDatabase = () => {
     FOREIGN KEY (sender_id) REFERENCES users(id)
   )`);
 
-  // Delivery agents table
   db.exec(`CREATE TABLE IF NOT EXISTS delivery_agents (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER UNIQUE NOT NULL,
@@ -52,7 +51,6 @@ const initializeDatabase = () => {
     FOREIGN KEY (user_id) REFERENCES users(id)
   )`);
 
-  // Delivery history table
   db.exec(`CREATE TABLE IF NOT EXISTS delivery_history (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     parcel_id INTEGER NOT NULL,
